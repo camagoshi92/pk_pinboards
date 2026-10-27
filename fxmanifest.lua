@@ -5,7 +5,7 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 lua54 'yes'
 author 'Poker Studio'
 description 'Responsive VORP pinboards with persistent image notes'
-version '1.0.0'
+version '1.0.1'
 
 shared_scripts {
     'config.lua',
