@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it" style="background: transparent">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pinboard</title>
+</head>
+<body style="background: transparent">
+    <main id="app" class="hidden" aria-hidden="true">
+        <section class="board" aria-label="Bacheca annunci" data-i18n-aria="boardAria">
+            <div class="lamp-glow" aria-hidden="true"></div>
+            <header class="topbar">
+                <div class="actions">
+                    <button id="new-post" class="button primary" data-i18n="newPost">Affiggi una nota</button>
+                    <button id="close" class="icon-button" aria-label="Esci" data-i18n="exit" data-i18n-aria="exitAria">ESCI</button>
+                </div>
+            </header>
+
+            <div id="posts" class="posts"></div>
+            <div id="empty" class="empty hidden">
+                <strong data-i18n="emptyTitle">Nessun annuncio affisso</strong>
+                <span data-i18n="emptyText">Questa bacheca aspetta la sua prima storia.</span>
+            </div>
+            <footer>
+                <span id="personal-limit">Manifesti totali: 0 / 10 · I tuoi annunci: 0 / 2</span>
+            </footer>
+        </section>
+
+        <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <form id="post-form" class="paper-form">
+                <h2 id="modal-title" data-i18n="modalTitle">NUOVO MANIFESTO</h2>
+                <label><span data-i18n="titleLabel">Titolo</span>
+                    <input id="title" maxlength="64" required placeholder="Titolo dell'annuncio" data-i18n-placeholder="titlePlaceholder">
+                </label>
+                <label><span data-i18n="messageLabel">Messaggio</span>
+                    <textarea id="body-text" maxlength="500" required placeholder="Scrivi qui il tuo messaggio..." data-i18n-placeholder="messagePlaceholder"></textarea>
+                </label>
+                <div class="size-field">
+                    <span data-i18n="textSize">Dimensione testo</span>
+                    <input id="text-size" type="hidden" value="normal">
+                    <div class="size-options">
+                        <button type="button" data-text-size="small" data-i18n="sizeSmall">Piccolo</button>
+                        <button type="button" data-text-size="normal" class="active" data-i18n="sizeNormal">Normale</button>
+                        <button type="button" data-text-size="large" data-i18n="sizeLarge">Grande</button>
+                    </div>
+                </div>
+                <label><span data-i18n="imageLabel">URL immagine</span> <small data-i18n="imageHint">(opzionale, link diretto HTTPS)</small>
+                    <input id="image-url" maxlength="500" type="url" placeholder="https://sito.it/immagine.png" data-i18n-placeholder="imagePlaceholder">
+                </label>
+                <div id="preview" class="preview hidden"><img alt="Anteprima immagine" data-i18n-alt="previewAlt"></div>
+                <p id="form-error" class="form-error hidden"></p>
+                <div class="form-actions">
+                    <button id="modal-close" class="button form-close" type="button" data-i18n="close">CHIUDI</button>
+                    <button id="submit" class="button publish" type="submit" data-i18n="submit">AFFIGGI MANIFESTO</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="image-viewer" class="image-viewer hidden" role="dialog" aria-modal="true" aria-label="Immagine del volantino" data-i18n-aria="viewerAria">
+            <button id="image-viewer-close" class="image-viewer-close" type="button" aria-label="Chiudi immagine" data-i18n-aria="viewerClose">×</button>
+            <figure>
+                <img id="image-viewer-picture" alt="Immagine del volantino" data-i18n-alt="viewerAria">
+                <figcaption id="image-viewer-caption"></figcaption>
+            </figure>
+        </div>
+
+        <div id="delete-confirm" class="delete-confirm hidden" role="dialog" aria-modal="true" aria-labelledby="delete-confirm-title">
+            <section class="confirm-paper">
+                <h2 id="delete-confirm-title" data-i18n="deleteTitle">RIMUOVERE ANNUNCIO?</h2>
+                <p data-i18n="deleteText">Il volantino verrà staccato dalla bacheca.</p>
+                <div class="confirm-actions">
+                    <button id="delete-cancel" class="button confirm-cancel" type="button" data-i18n="cancel">ANNULLA</button>
+                    <button id="delete-accept" class="button confirm-delete" type="button" data-i18n="remove">RIMUOVI</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
