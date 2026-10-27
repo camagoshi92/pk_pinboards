@@ -19,7 +19,7 @@ let busy = false;
 let pendingDeleteId = null;
 let ui = {};
 
-// Testo della lingua attiva (locales.lua); i segnaposto {nome} vengono sostituiti da vars.
+// Text of the active language (locales.lua); {name} placeholders are replaced from vars.
 function t(key, vars = {}, fallback = '') {
     const text = ui[key] ?? fallback;
     return String(text).replace(/\{(\w+)\}/g, (_, name) => vars[name] ?? '');

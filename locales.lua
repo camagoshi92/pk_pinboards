@@ -1,5 +1,5 @@
--- Testi della risorsa. La lingua si sceglie con Config.Locale ('it' oppure 'en').
--- Per aggiungere una lingua copia un blocco, cambia la chiave e traduci i valori.
+-- Resource texts. The language is chosen with Config.Locale ('it' or 'en').
+-- To add a language copy a block, change its key and translate the values.
 Locales = {}
 
 Locales.it = {
@@ -138,7 +138,7 @@ Locales.en = {
     },
 }
 
--- Testi della lingua attiva, con l'italiano come riserva per le chiavi mancanti.
+-- Texts of the active language, falling back to Italian for missing keys.
 function Lang()
     return Locales[Config.Locale] or Locales.it
 end

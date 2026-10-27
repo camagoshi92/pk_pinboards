@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Locale = 'it' -- 'it' oppure 'en'; i testi sono in locales.lua
+Config.Locale = 'it' -- 'it' or 'en'; texts are in locales.lua
 Config.OpenControl = 0x760A9C6F -- G
 Config.InteractDistance = 2.25
 Config.RenderDistance = 120.0
@@ -12,12 +12,12 @@ Config.SaveIntervalMinutes = 10
 Config.Defaults = {
     model = 'mp005_p_mp_bountyboard02x',
     spawnObject = true,
-    -- false mantiene esattamente la Z configurata (consigliato per bacheche a muro).
-    -- Imposta true sulla singola bacheca solo se il prop deve poggiare sul terreno.
+    -- false keeps the configured Z exactly (recommended for wall-mounted boards).
+    -- Set true on a single board only if the prop must rest on the ground.
     placeOnGround = false,
     maxPosts = 10,
     maxPostsPerPlayer = 2,
-    postDurationHours = 168, -- 7 giorni
+    postDurationHours = 168, -- 7 days
 }
 
 Config.Validation = {
@@ -27,7 +27,7 @@ Config.Validation = {
     textSizes = { small = true, normal = true, large = true },
     requireHttps = true,
     allowedExtensions = { '.jpg', '.jpeg', '.png', '.webp', '.gif' },
-    -- Controllo testuale server-side. Aggiungi domini o frammenti indesiderati.
+    -- Server-side text check. Add unwanted domains or fragments.
     blacklistedUrlParts = {
         'porn', 'xxx', 'hentai', 'rule34', 'xvideos', 'xnxx', 'redgifs',
     },
@@ -36,7 +36,7 @@ Config.Validation = {
 Config.Permissions = {
     ace = 'pk_pinboards.moderate',
     frameworkGroups = { 'admin', 'superadmin', 'mod' },
-    -- Job autorizzati a rimuovere qualsiasi locandina. Valore = grado minimo.
+    -- Jobs allowed to remove any post. Value = minimum grade.
     jobs = {
         sheriff = 0,
         police = 0,
@@ -59,13 +59,13 @@ Config.Discord = {
     deleteWebhook = '',
 }
 
--- Aggiungi liberamente nuove voci.
--- coords accetta vector4(x, y, z, heading) oppure una lista di vector4 per la stessa bacheca/contenuti.
--- jobs = nil rende la bacheca pubblica; jobs = { sheriff = 0, police = 1 }
--- postGroups = nil permette a tutti di pubblicare; postGroups = { 'admin' } limita solo la pubblicazione.
--- placeOnGround = false usa le coordinate esatte; true corregge automaticamente la Z sul terreno.
--- webhook = 'https://discord.com/api/webhooks/...' (opzionale) manda i nuovi annunci di quella bacheca
--- su un canale proprio; il globalWebhook riceve comunque ogni bacheca.
+-- Add as many boards as you like.
+-- coords accepts vector4(x, y, z, heading) or a list of vector4 sharing the same board/posts.
+-- jobs = nil makes the board public; jobs = { sheriff = 0, police = 1 }
+-- postGroups = nil lets everyone post; postGroups = { 'admin' } only restricts posting.
+-- placeOnGround = false uses the exact coordinates; true snaps the Z to the ground.
+-- webhook = 'https://discord.com/api/webhooks/...' (optional) sends new posts of that board
+-- to its own channel; the globalWebhook still receives every board.
 Config.Boards = {
     {
         id = 'admin_announcements',
